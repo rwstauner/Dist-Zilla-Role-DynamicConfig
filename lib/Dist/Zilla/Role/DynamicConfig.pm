@@ -1,3 +1,4 @@
+# vim: set ts=2 sts=2 sw=2 expandtab smarttab:
 use strict;
 use warnings;
 
@@ -37,23 +38,23 @@ and places the remaining unknown/dynamic arguments into L</_config>.
 # TODO: use around ? call $orig-> ? call super() ?
 
 sub BUILDARGS {
-	my ($class, @arg) = @_;
-	my %copy = ref $arg[0] ? %{$arg[0]} : @arg;
+  my ($class, @arg) = @_;
+  my %copy = ref $arg[0] ? %{$arg[0]} : @arg;
 
-	my $zilla = delete $copy{zilla};
-	my $name  = delete $copy{plugin_name};
+  my $zilla = delete $copy{zilla};
+  my $name  = delete $copy{plugin_name};
 
-	confess 'do not try to pass _config as a build arg!'
-		if $copy{_config};
+  confess 'do not try to pass _config as a build arg!'
+    if $copy{_config};
 
-	my $other = $class->separate_local_config(\%copy);
+  my $other = $class->separate_local_config(\%copy);
 
-	return {
-		zilla => $zilla,
-		plugin_name => $name,
-		_config     => \%copy,
-		%$other
-	}
+  return {
+    zilla => $zilla,
+    plugin_name => $name,
+    _config     => \%copy,
+    %$other
+  }
 }
 
 =method separate_local_config
