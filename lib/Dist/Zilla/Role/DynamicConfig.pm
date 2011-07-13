@@ -24,7 +24,7 @@ has _config => (
 Copied/modified from L<Dist::Zilla::Plugin::Prereqs>
 to allow arbitrary values to be specified.
 
-This overwrites the L<Class::MOP::Instance> method
+This overwrites the L<Moose::Object> method
 called to prepare arguments before instantiation.
 
 It separates the expected arguments
@@ -32,6 +32,8 @@ It separates the expected arguments
 and places the remaining unknown/dynamic arguments into L</_config>.
 
 =cut
+
+# TODO: use around ? call $orig-> ? call super() ?
 
 sub BUILDARGS {
 	my ($class, @arg) = @_;
