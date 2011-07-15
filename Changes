@@ -2,6 +2,10 @@ Revision history for Dist::Zilla::Role::DynamicConfig
 
 {{$NEXT}}
 
+1.002     2011-07-15T00:50:27Z
+
+  - List Dist::Zilla as runtime prereq rather than build prereq
+
   - Minor documentation update
   - Superficial dist/release changes
 
