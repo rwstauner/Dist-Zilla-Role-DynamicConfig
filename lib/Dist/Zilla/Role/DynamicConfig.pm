@@ -5,6 +5,7 @@ use warnings;
 package Dist::Zilla::Role::DynamicConfig;
 # ABSTRACT: A Role that accepts a dynamic configuration
 
+use Dist::Zilla 4 ();
 use Moose::Role;
 
 =attr _config
